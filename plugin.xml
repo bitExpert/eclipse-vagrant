@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<extension
+		point="org.eclipse.ui.popupMenus">
+
+		<objectContribution
+			objectClass="org.eclipse.core.resources.IProject"
+			id="de.bitexpert.eclipse.vagrant.vagrantProjectMarker">
+			<menu
+				label="External Tools"
+				path="additions"
+				id="de.bitexpert.eclipse.popup.externalTools">
+				<separator name="content"/>
+			</menu>
+			<menu
+				label="Vagrant"
+				path="de.bitexpert.eclipse.popup.externalTools/vagrant"
+				id="de.bitexpert.eclipse.popup.externalTools.vagrant">
+				<separator name="content"/>
+			</menu>
+			<action
+				label="Init"
+				class="de.bitexpert.eclipse.vagrant.popup.actions.InitExecutor"
+				menubarPath="de.bitexpert.eclipse.popup.externalTools/de.bitexpert.eclipse.popup.externalTools.vagrant/vagrant"
+				enablesFor="+"
+				id="de.bitexpert.eclipse.vagrant.actions.initAction">
+			</action>
+		</objectContribution>
+	</extension>
+
+	<extension
+		point="org.eclipse.ui.popupMenus">
+
+		<objectContribution
+			objectClass="org.eclipse.core.resources.IFile"
+			nameFilter="Vagrantfile"
+			id="de.bitexpert.eclipse.vagrant.vagrantFileMarker">
+			<menu
+				label="External Tools"
+				path="additions"
+				id="de.bitexpert.eclipse.popup.externalTools">
+				<separator name="content"/>
+			</menu>
+			<menu
+				label="Vagrant"
+				path="de.bitexpert.eclipse.popup.externalTools/vagrant"
+				id="de.bitexpert.eclipse.popup.externalTools.vagrant">
+				<separator name="content"/>
+			</menu>
+			<action
+				label="Destroy"
+				class="de.bitexpert.eclipse.vagrant.popup.actions.DestroyExecutor"
+				menubarPath="de.bitexpert.eclipse.popup.externalTools/de.bitexpert.eclipse.popup.externalTools.vagrant/content"
+				enablesFor="+"
+				id="de.bitexpert.eclipse.vagrant.actions.destroyAction">
+			</action>
+			<action
+				label="Provision"
+				class="de.bitexpert.eclipse.vagrant.popup.actions.ProvisionExecutor"
+				menubarPath="de.bitexpert.eclipse.popup.externalTools/de.bitexpert.eclipse.popup.externalTools.vagrant/content"
+				enablesFor="+"
+				id="de.bitexpert.eclipse.vagrant.actions.provisionAction">
+			</action>
+			<action
+				label="Reload"
+				class="de.bitexpert.eclipse.vagrant.popup.actions.ReloadExecutor"
+				menubarPath="de.bitexpert.eclipse.popup.externalTools/de.bitexpert.eclipse.popup.externalTools.vagrant/content"
+				enablesFor="+"
+				id="de.bitexpert.eclipse.vagrant.actions.reloadAction">
+			</action>
+			<action
+				label="Suspend"
+				class="de.bitexpert.eclipse.vagrant.popup.actions.SuspendExecutor"
+				menubarPath="de.bitexpert.eclipse.popup.externalTools/de.bitexpert.eclipse.popup.externalTools.vagrant/content"
+				enablesFor="+"
+				id="de.bitexpert.eclipse.vagrant.actions.suspendAction">
+			</action>
+			<action
+				label="Up"
+				class="de.bitexpert.eclipse.vagrant.popup.actions.UpExecutor"
+				menubarPath="de.bitexpert.eclipse.popup.externalTools/de.bitexpert.eclipse.popup.externalTools.vagrant/content"
+				enablesFor="+"
+				id="de.bitexpert.eclipse.vagrant.actions.upAction">
+			</action>
+		</objectContribution>
+	</extension>
+</plugin>
