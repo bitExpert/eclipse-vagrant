@@ -168,15 +168,13 @@ abstract public class VagrantExecutor implements IObjectActionDelegate
 	 */
 	private String getVagrantExecutable()
 	{
-		String file = "\\vagrant";
+		String file = "\\vagrant.sh";
 		String platform = System.getProperty("os.name"); 
 		if(platform.contains("Windows")) {
 			file = "\\vagrant.bat";
 		}
-		System.out.println(platform);
 		IPreferenceStore store = Activator.getDefault()
                 .getPreferenceStore();
-		System.out.println(store.getString(PreferenceConstants.P_PATH) + file);
 		return store.getString(PreferenceConstants.P_PATH) + file;
 	}
 
