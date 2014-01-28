@@ -3,7 +3,7 @@ package de.bitexpert.eclipse.vagrant.preference;
 import org.eclipse.jface.preference.*;
 import org.eclipse.ui.IWorkbenchPreferencePage;
 import org.eclipse.ui.IWorkbench;
-import eclipse_vagrant.Activator;
+import de.bitexpert.eclipse.vagrant.VagrantActivator;
 
 /**
  * This class represents a preference page that
@@ -25,8 +25,8 @@ public class VagrantPreference
 
 	public VagrantPreference() {
 		super(GRID);
-		setPreferenceStore(Activator.getDefault().getPreferenceStore());
-		setDescription("A demonstration of a preference page implementation");
+		setPreferenceStore(VagrantActivator.getDefault().getPreferenceStore());
+		setDescription("Vagrant Settings");
 	}
 	
 	/**
@@ -38,7 +38,7 @@ public class VagrantPreference
 	public void createFieldEditors() {
 		
 		
-		addField(new DirectoryFieldEditor(PreferenceConstants.P_PATH, 
+		addField(new FileFieldEditor(PreferenceConstants.P_PATH, 
 				"&Vagrant Executable:", getFieldEditorParent()));
 	}
 

@@ -43,10 +43,8 @@ import org.eclipse.ui.console.IConsole;
 import org.eclipse.ui.console.IConsoleManager;
 import org.eclipse.ui.console.MessageConsole;
 import org.eclipse.ui.console.MessageConsoleStream;
-
+import de.bitexpert.eclipse.vagrant.VagrantActivator;
 import de.bitexpert.eclipse.vagrant.preference.PreferenceConstants;
-
-import eclipse_vagrant.Activator;
 
 
 /**
@@ -167,15 +165,10 @@ abstract public class VagrantExecutor implements IObjectActionDelegate
 	 * @return String
 	 */
 	private String getVagrantExecutable()
-	{
-		String file = "\\vagrant.sh";
-		String platform = System.getProperty("os.name"); 
-		if(platform.contains("Windows")) {
-			file = "\\vagrant.bat";
-		}
-		IPreferenceStore store = Activator.getDefault()
+	{		
+		IPreferenceStore store = VagrantActivator.getDefault()
                 .getPreferenceStore();
-		return store.getString(PreferenceConstants.P_PATH) + file;
+		return store.getString(PreferenceConstants.P_PATH);
 	}
 
 
