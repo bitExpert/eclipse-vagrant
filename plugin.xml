@@ -28,7 +28,6 @@
 			</action>
 		</objectContribution>
 	</extension>
-
 	<extension
 		point="org.eclipse.ui.popupMenus">
 
@@ -85,4 +84,18 @@
 			</action>
 		</objectContribution>
 	</extension>
+ <extension
+       point="org.eclipse.ui.preferencePages">
+    <page
+          class="de.bitexpert.eclipse.vagrant.preference.VagrantPreference"
+          id="de.bitexpert.eclipse.vagrant.preference.VagrantPreference"
+          name="Vagrant">
+    </page>
+ </extension>
+ <extension
+       point="org.eclipse.core.runtime.preferences">
+    <initializer
+          class="de.bitexpert.eclipse.vagrant.preference.PreferenceInitializer">
+    </initializer>
+ </extension>
 </plugin>

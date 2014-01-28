@@ -32,6 +32,7 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.jface.action.IAction;
+import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.IActionDelegate;
@@ -42,6 +43,8 @@ import org.eclipse.ui.console.IConsole;
 import org.eclipse.ui.console.IConsoleManager;
 import org.eclipse.ui.console.MessageConsole;
 import org.eclipse.ui.console.MessageConsoleStream;
+import de.bitexpert.eclipse.vagrant.VagrantActivator;
+import de.bitexpert.eclipse.vagrant.preference.PreferenceConstants;
 
 
 /**
@@ -106,9 +109,11 @@ abstract public class VagrantExecutor implements IObjectActionDelegate
 					}
 					catch(IOException e)
 					{
+						System.out.println("The exception is " + e.getMessage());
 					}
 					catch(InterruptedException e)
 					{
+						System.out.println("The exception is " + e.getMessage());
 					}
 
 					return Status.OK_STATUS;
@@ -160,8 +165,10 @@ abstract public class VagrantExecutor implements IObjectActionDelegate
 	 * @return String
 	 */
 	private String getVagrantExecutable()
-	{
-		return "vagrant";
+	{		
+		IPreferenceStore store = VagrantActivator.getDefault()
+                .getPreferenceStore();
+		return store.getString(PreferenceConstants.P_PATH);
 	}
 
 
