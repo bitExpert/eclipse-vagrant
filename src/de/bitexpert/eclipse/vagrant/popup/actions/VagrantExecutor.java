@@ -15,7 +15,6 @@
  */
 
 
-
 package de.bitexpert.eclipse.vagrant.popup.actions;
 
 
@@ -160,15 +159,15 @@ abstract public class VagrantExecutor implements IObjectActionDelegate
 
 
 	/**
-	 * Returns the path to the Vagrant executable.
+	 * Returns the path to the Vagrant executable. Path will be read from
+	 * the preferences settings.
 	 *
 	 * @return String
 	 */
 	private String getVagrantExecutable()
-	{		
-		IPreferenceStore store = VagrantActivator.getDefault()
-                .getPreferenceStore();
-		return store.getString(PreferenceConstants.P_PATH);
+	{
+		IPreferenceStore store = VagrantActivator.getDefault().getPreferenceStore();
+		return store.getString(PreferenceConstants.VAGRANT_PATH);
 	}
 
 

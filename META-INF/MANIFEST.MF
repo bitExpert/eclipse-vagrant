@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Vagrant Eclipse Plugin
 Bundle-SymbolicName: de.bitexpert.eclipse.vagrant;singleton:=true
-Bundle-Version: 0.0.1
+Bundle-Version: 0.0.2
 Bundle-Activator: de.bitexpert.eclipse.vagrant.VagrantActivator
 Bundle-Vendor: bitExpert AG
 Require-Bundle: org.eclipse.ui,
