@@ -79,6 +79,7 @@ abstract public class VagrantExecutor implements IObjectActionDelegate
 			final MessageConsoleStream out = myConsole.newMessageStream();
 			final String vagrantExecutable = getVagrantExecutable();
 			final String vagrantCommand    = getVagrantCommand();
+			final String vagrantOpts       = getVagrantOptions();
 			final String workingDir        = this.selectedProject.getLocation().
 				toOSString();
 
@@ -91,7 +92,10 @@ abstract public class VagrantExecutor implements IObjectActionDelegate
 						List<String> commands = new ArrayList<String>();
 						commands.add(vagrantExecutable);
 						commands.add(vagrantCommand);
-
+						if(!vagrantOpts.isEmpty())
+						{
+							commands.add(vagrantOpts);
+						}
 						ProcessBuilder pb = new ProcessBuilder(commands);
 						pb.directory(new File(workingDir));
 						pb.redirectErrorStream(true);
@@ -177,4 +181,15 @@ abstract public class VagrantExecutor implements IObjectActionDelegate
 	 * @return String
 	 */
 	abstract protected String getVagrantCommand();
+
+
+	/**
+	 * Returns additional options that can be passed to the vagrant executable.
+	 *
+	 * @return String
+	 */
+	protected String getVagrantOptions()
+	{
+		return "";
+	}
 }

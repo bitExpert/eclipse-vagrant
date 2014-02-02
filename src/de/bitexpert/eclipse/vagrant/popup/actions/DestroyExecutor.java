@@ -32,4 +32,11 @@ public class DestroyExecutor extends VagrantExecutor
 	{
 		return "destroy";
 	}
+
+
+	@Override
+	protected String getVagrantOptions()
+	{
+		return "--force";
+	}
 }
